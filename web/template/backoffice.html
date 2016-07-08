@@ -1,0 +1,149 @@
+<#include "header.html">
+
+		
+
+
+
+<!-- banner-bottom -->
+	<div class="banner-bottom">
+		<div class="container">
+			<div class="banner-bottom-grids">
+		<!--		<div class="col-md-4 banner-bottom-grid-left">
+					<div class="banner-bottom-grid-right-grid1">
+							
+							<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+								<h3>Menù</h3><br>
+								<h2>								
+								<#if sessione??>	
+								<a href="inser_pubb.html"><span class="label label-primary">Inserisci Pubblicazione</span></a><br><br>
+								<a href="backoffice.html"><span class="label label-default">Backoffice</span></a><br><br>
+								<a href="logout"><span class="label label-danger">Logout</span></a><br><br>
+								<#else>		
+								<a href="accedi_reg.html"><span class="label label-success">Accedi/Registrati</span></a>
+								</#if>		
+								</h2>
+							</div>
+					</div>				
+				</div> -->
+				<div class="col-md-12 banner-bottom-grid-left">
+					<a href="catalogo.html"><h6><i class="material-icons prefix">settings</i> Gestione Backoffice</h6></a>
+					<div class="banner-bottom-grid-left-grids">
+						<div class="banner-bottom-grid-left-grid">
+						
+							<div class="col-md-5 banner-bottom-grid-left-gridl">
+								<img src="template/images/book.png" alt=" " class="img-responsive" width="50%"/>
+							</div>
+							<div class="col-md-7 banner-bottom-grid-left-gridr">
+								<h2>Recensioni da approvare: </h2><br>
+                                                                <#if lista_recensioni??>
+								<#list lista_recensioni as recensione>
+									<li>
+										<div><i class="material-icons">bookmark_border</i> </div>
+										<div>
+                                                                                    <p>Utente: ${recensione.utente}</p>
+                                                                                    <p>Testo: ${recensione.testo}</p>
+                                                                                      <p>Voto: ${recensione.voto}</p>
+											<br/>
+											<form method="post" action="user_admin">
+												<input type="hidden" name="recensione" value="${recensione.id}">
+												<input type="hidden" name="id" value="">
+												<button class="btn btn-biblio1" type="submit" name="approva" value="pubblica">Pubblica</button>
+												<button class="btn btn-biblio1" type="submit" name="elimina" value="elimina">Elimina</button>
+											</form>
+											<br/>
+											<br/>
+										</div>
+									</li>
+							</#list>
+                                                        </#if>
+							</div>
+							<div class="clearfix"> </div>
+							
+							<div class="col-md-5 banner-bottom-grid-left-gridl">
+								<img src="template/images/user.png" alt=" " class="img-responsive" width="50%"/>
+							</div>
+							<div class="col-md-7 banner-bottom-grid-left-gridr">
+								<h2>Gestione utenza: </h2><br>
+								<#if lista_utenti??>
+								<#list lista_utenti as utente>
+                                                                <ul>
+									<li>
+										<div><i class="material-icons">account_circle</i> ${utente.nome} ${utente.cognome} - ${utente.email }</div>
+										<div>
+											<br><h3>Promuovi a: </h3><br>
+											<form action="user_admin" method="post">
+												<input type="hidden" name="user" value="${utente.email}">
+												<p>
+												<button class="btn btn-biblio2" type="submit" name="avanzato" value="avanzato">Utente Avanzato</button> 
+												</p>
+												<br/>
+											</form>
+                         
+										</div>
+									</li>
+							</ul>
+                                                                </#list>
+                                                                </#if>
+							</div>
+						</div>
+					</div>
+				</div>				
+			</div>
+		</div>
+	</div>
+<!-- //banner-bottom -->
+			
+			
+			
+<!-- footer -->
+	<div class="footer">
+		<div class="container">
+			<div class="footer-grid">
+				<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+				<h3><span>Connettiti</span> Sottoscriviti alle Newsletter</h3>
+				<form>
+					<input type="email" value="inserisci il tuo indirizzo email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'inserisci il tuo indirizzo email';}" required="">
+					<input type="submit" value=" " >
+				</form>
+			</div>
+			<div class="footer-grid-logo">
+				<h2><a href="index"><span></span>Biblio Manager<i>Biblioteca Online</i></a></h2>
+				<p>Entra anche tu a far parte della nostra community!</p>
+				<div class="social">
+					<ul>
+						<li><a href="#" class="link facebook"><span></span></a></li>
+						<li><a href="#" class="link twitter"><span></span></a></li>
+						<li><a href="#" class="link google-plus"><span></span></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer-copy">
+		<div class="container">
+			<p>&copy 2016 Biblio Manager. All rights reserved <!--| Design by <a href="http://w3layouts.com/">W3layouts.</a> --> </p>
+		</div>
+	</div>
+<!-- //footer -->
+<!-- for bootstrap working -->
+	<script src="template/js/bootstrap.js"></script>
+<!-- //for bootstrap working -->
+<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			*/
+								
+			$().UItoTop({ easingType: 'easeOutQuart' });
+								
+			});
+	</script>
+<!-- //here ends scrolling icon -->
+</body>
+</html>

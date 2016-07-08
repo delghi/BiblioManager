@@ -1,0 +1,151 @@
+<#include "header.html">
+
+
+
+<!-- banner-bottom -->
+	<div class="banner-bottom">
+		<div class="container">
+			<div class="banner-bottom-grids">
+		<!--		<div class="col-md-4 banner-bottom-grid-left">
+					<div class="banner-bottom-grid-right-grid1">
+							<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+								<h3>Menù</h3><br>
+								<h2>								
+								<#if sessione??>	
+								<a href="upload_pub"><span class="label label-primary">Inserisci Pubblicazione</span></a><br><br>
+								<a href="user_admin"><span class="label label-default">Backoffice</span></a><br><br>
+								<a href="logout"><span class="label label-danger">Logout</span></a><br><br>
+								<#else>		
+								<a href="login"><span class="label label-success">Accedi/Registrati</span></a>
+								</#if>		
+								</h2>
+							</div>	
+					</div>
+				</div> <!-- close div md4 -->
+				
+				<div class="col-md-12 banner-bottom-grid-left">
+					<h6><i class="material-icons prefix">mode_edit</i> Modifica Pubblicazione</h6>
+					<div class="banner-bottom-grid-left-grids">
+						<div class="banner-bottom-grid-left-grid">
+							<form enctype="multipart/form-data" action="modifica_pub?id=${pubblicazione.id}" method="POST">
+								<div id="inser_pubb">
+                                                                   <input type="hidden"  value="${pubblicazione.id}" name="id"  placeholder="">
+									<div class="input-group input-group-lg">
+										<span class="input-group-addon" id="titolo"><i class="material-icons prefix">title</i></span>
+										<input name="titolo" type="text" class="form-control" value="${pubblicazione.titolo}" placeholder="" aria-describedby="sizing-addon1">
+									</div>
+									<div class="input-group input-group-lg">
+										<span class="input-group-addon" id="autori"><i class="material-icons prefix">people</i></span>
+                                                                                <input name="autore" value="${pubblicazione.autore}" type="text" class="form-control" placeholder="" aria-describedby="sizing-addon1">
+									</div>
+									<div class="input-group input-group-lg">
+										<span class="input-group-addon" id="Editore"><i class="material-icons prefix">account_circle</i></span>
+										<input name="editore" value="${ristampa.editore}" type="text" class="form-control" placeholder="" aria-describedby="sizing-addon1">
+									</div>
+									<div class="input-group input-group-lg">
+										<span class="input-group-addon" id="Descrizione"><i class="material-icons prefix">description</i></span>
+                                                                                <textarea name="descrizione" class="form-control" placeholder="" aria-describedby="sizing-addon1">"${pubblicazione.descrizione}"</textarea>
+										<!--<input name="descrizione" value="${pubblicazione.descrizione}" type="text" class="form-control" placeholder="" aria-describedby="sizing-addon1">-->
+									</div>
+									<div class="input-group input-group-lg">
+										<span class="input-group-addon" id="Codie_ISBN"><i class="material-icons prefix">code</i></span>
+										<input name="isbn" type="text" value="${ristampa.isbn}" class="form-control" placeholder="" length="13" maxlength="13" aria-describedby="sizing-addon1">
+									</div>
+									<div class="input-group input-group-lg">
+										<span class="input-group-addon" id="Numero_Pagine"><i class="material-icons prefix">control_point</i></span>
+										<input name="numpagine" value="${ristampa.num_pagine}" type="text" class="form-control" placeholder=" " maxlength="4" aria-describedby="sizing-addon1">
+									</div>
+									<div class="input-group input-group-lg">
+										<span class="input-group-addon" id="Lingua"><i class="material-icons prefix">language</i></span>
+										<input name="lingua" type="text"  value="${ristampa.lingua}" class="form-control" placeholder="" aria-describedby="sizing-addon1">
+									</div>
+									<div class="input-group input-group-lg">
+										<span class="input-group-addon" id="Data_pubblicazione"><i class="material-icons prefix">date_range</i></span>
+										<input name="datapub" type="date" value="${ristampa.data_pubblicazione}" class="form-control" placeholder="" aria-describedby="sizing-addon1">
+									</div>
+                                                                        <div class="input-group input-group-lg">
+										<span class="input-group-addon" id="Lingua"><i class="material-icons prefix">password</i></span>
+										<input name="keyword1" type="text" value="${keyword.keyword1}" class="form-control" placeholder="" aria-describedby="sizing-addon1">
+                                                                                <input name="keyword2" type="text" value="${keyword.keyword2}" class="form-control" placeholder="" aria-describedby="sizing-addon1">
+                                                                                <input name="key3" type="text" value="${keyword.keyword3}" class="form-control" placeholder="" aria-describedby="sizing-addon1">
+                                                                                <input name="key4" type="text" value="${keyword.keyword4}" class="form-control" placeholder="" aria-describedby="sizing-addon1">
+									</div>
+									<input type="file" name="FileUpload2"/>
+									<br>
+                                                                        <div class="input-group input-group-lg">
+										
+                                                                                <input name="descrizionemod" type="text" value="" class="form-control" placeholder="Descrivi la modifica fatta..." aria-describedby="sizing-addon1">
+									</div>
+                                                                    <div class="col-lg-6 in-gp-tb">
+										<div class="input-group">
+											<span class="input-group-btn">
+												<button class="btn btn-biblio" type="submit">Salva <i class="material-icons right">save</i></button>
+											</span>
+										</div>
+									</div>
+								</div>
+							</form>
+                                                    </div>
+						</div>
+					</div>
+					
+				</div>			
+			</div>
+		</div>
+	</div>
+<!-- //banner-bottom -->
+			
+			
+			
+<!-- footer -->
+	<div class="footer">
+		<div class="container">
+			<div class="footer-grid">
+				<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+				<h3><span>Connettiti</span> Sottoscriviti alle Newsletter</h3>
+				<form action="" method="post">
+					<input name="email" type="email" value="inserisci il tuo indirizzo email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'inserisci il tuo indirizzo email';}" required="">
+					<input type="submit" value=" " >
+				</form>
+			</div>
+			<div class="footer-grid-logo">
+				<h2><a href="home.html"><span></span>Biblio Manager<i>Biblioteca Online</i></a></h2>
+				<p>Entra anche tu a far parte della nostra community!</p>
+				<div class="social">
+					<ul>
+						<li><a href="#" class="link facebook"><span></span></a></li>
+						<li><a href="#" class="link twitter"><span></span></a></li>
+						<li><a href="#" class="link google-plus"><span></span></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer-copy">
+		<div class="container">
+			<p>&copy 2016 Biblio Manager. All rights reserved <!--| Design by <a href="http://w3layouts.com/">W3layouts.</a> --> </p>
+		</div>
+	</div>
+<!-- //footer -->
+<!-- for bootstrap working -->
+	<script src="template/js/bootstrap.js"></script>
+<!-- //for bootstrap working -->
+<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			*/
+								
+			$().UItoTop({ easingType: 'easeOutQuart' });
+								
+			});
+	</script>
+<!-- //here ends scrolling icon -->
+</body>
+</html>

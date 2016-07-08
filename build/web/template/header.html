@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Biblio Manager</title>
+	<!-- for-mobile-apps -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Combatant Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+			function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!-- //for-mobile-apps -->
+	<link href="template/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="template/css/style.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="template/css/material-icons.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!-- js -->
+	<script src="template/js/jquery-1.11.1.min.js"></script>
+	<!-- //js -->
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+	<link href='//fonts.googleapis.com/css?family=Jura:400,300,500,600' rel='stylesheet' type='text/css'>
+	<!-- start-smoth-scrolling -->
+	<script type="text/javascript" src="template/js/move-top.js"></script>
+	<script type="text/javascript" src="template/js/easing.js"></script>
+<!--        <script type="text/javascript" src="template/js/controlli.js"></script>-->
+
+	<script type="text/javascript">
+		jQuery(document).ready(function($) {
+			$(".scroll").click(function(event){		
+				event.preventDefault();
+				$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+			});
+		});
+	</script>
+<!-- start-smoth-scrolling -->
+
+			<link href="template/css/material-icons.css" rel="stylesheet" type="text/css" media="all">
+			<!-- start: Favicon -->
+				<link rel="shortcut icon" href="template/images/favicon.ico" />
+			<!-- end: Favicon -->
+</head>
+<body>
+
+<!-- body-top -->
+	<div class="body-top">
+		<div class="container">
+			<div class="body-top-left">
+				<p>Entra anche tu a far parte della nostra community!</p><br>
+			</div>
+                      
+			<div class="body-top-right">
+				<div class="social">
+                                    
+                                    <ul>
+                          <!--          <li><a href="#" class="link facebook"><span></span></a></li>
+                                        <li><a href="#" class="link twitter"><span></span></a></li>
+                                        <li><a href="#" class="link google-plus"><span></span></a></li>
+                                        <li><a href="#" class=""><span></span></a></li>
+                                        <li><a href="#" class=""><span></span></a></li>
+                                        <li><a href="#" class=""><span></span></a></li>
+                                        <li><a href="#" class=""><span></span></a></li>         -->
+                                    <#if sessione??> 
+                                        <li><a href="logout" class="link"><span>esci</span></a></li>
+                                    </#if>
+                                    </ul>
+                                    
+				</div>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+<!-- //body-top -->
+<!-- body-content -->
+	<div class="body-content">
+		<div class="container">
+			<!-- header -->
+				<div class="logo-search">
+					<div class="logo">
+						<h1><a href="index">Biblio Manager<i>Biblioteca online</i></a></h1>
+					</div>
+					<div class="search">
+                                            <form action="ricerca" method="POST">
+							<input type="text" name="ricerca" value="Cerca..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Here...';}" required="">
+							<input type="submit" value=" " >
+						</form>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			<!-- //header -->
+			<!-- nav -->
+				<div class="navigation">
+					<nav class="navbar navbar-default">
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+						  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						  </button>
+						</div>
+
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+							<nav class="cl-effect-20" id="cl-effect-20">
+								<ul class="nav navbar-nav">
+										<#if sessione??>
+                                                                                    <#if tipologia == 0>
+                                                                                <li><a href="index"><span data-hover="Home">Home</span></a></li>
+										<li><a href="catalogo"><span data-hover="Catalogo">Catalogo</span></a></li>
+										<li><a href="profilo"><span data-hover="Profilo Personale">Profilo Personale</span></a></li>
+										<li><a href="chisiamo"><span data-hover="Chi Siamo">Chi Siamo</span></a></li>
+                                                          <!--                  <li><a href="logout"><span data-hover="Logout">Logout</span></a></li>       -->
+                                                                                    
+                                                                                    <#else>
+										<li><a href="index"><span data-hover="Home">Home</span></a></li>
+										<li><a href="catalogo"><span data-hover="Catalogo">Catalogo</span></a></li>
+										<li><a href="profilo"><span data-hover="Profilo Personale">Profilo Personale</span></a></li>
+										<li><a href="chisiamo"><span data-hover="Chi Siamo">Chi Siamo</span></a></li>
+										<li><a href="user_admin"><span data-hover="Backoffice">Backoffice</span></a></li>
+                                                                     <!--       <li><a href="logout"><span data-hover="Logout"><i class="material-icons">exit_to_app</i></span></a></li> -->
+                                                                                    </#if>
+                                                                                    
+                                                                                <#else> 
+                                                                                <li class="active"><a href="index"><span data-hover="Home">Home</span></a></li>
+										<li><a href="login"><span data-hover="Accedi/Registrati">Accedi / Registrati</span></a></li>
+										<li><a href="chisiamo"><span data-hover="Chi Siamo">Chi Siamo</span></a></li>
+										</#if>    
+                                                                                   
+								</ul>
+							</nav>
+						</div>
+						<!-- /.navbar-collapse -->
+					</nav>
+				</div>
+			<!-- //nav -->

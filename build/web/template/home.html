@@ -1,0 +1,201 @@
+<#include "header.html">
+	
+			<!-- banner -->
+				<div class="banner">
+					<div class="wmuSlider example1">
+						<div class="wmuSliderWrapper">
+							<article style="position: absolute; width: 100%; opacity: 0;"> 
+								<div class="banner-wrap">
+									<div class="banner1">
+										
+									</div>
+								</div>
+							</article>
+							<article style="position: absolute; width: 100%; opacity: 0;"> 
+								<div class="banner-wrap">
+									<div class="banner2">
+										
+									</div>
+								</div>
+							</article>
+							<article style="position: absolute; width: 100%; opacity: 0;"> 
+								<div class="banner-wrap">
+									<div class="banner3">
+										
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+							<script src="template/js/jquery.wmuSlider.js"></script> 
+							<script>
+								$('.example1').wmuSlider();         
+							</script> 
+
+				</div>
+			<!-- //banner -->
+		</div>
+	</div>
+<!-- //body-content -->
+
+
+
+<!-- banner-bottom -->
+	<div class="banner-bottom">
+		<div class="container">
+			<div class="banner-bottom-grids">
+                            
+<!--				<div class="col-md-4 banner-bottom-grid-left">
+					<div class="banner-bottom-grid-right-grid1">
+							
+							<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+								<h3>Menù</h3><br>
+								<h2>								
+								<#if sessione??>	
+								<a href="upload_pub"><span class="label label-primary">Inserisci Pubblicazione</span></a><br><br>
+								<a href="user_admin"><span class="label label-default">Backoffice</span></a><br><br>
+								<a href="logout"><span class="label label-danger">Logout</span></a><br><br>
+								<#else>		
+								<a href="login"><span class="label label-success">Accedi/Registrati</span></a>
+								</#if>		
+								</h2>
+							</div>	
+					</div>
+				</div> <!-- close div md4 -->
+				
+
+				<div class="col-md-12 banner-bottom-grid-left">
+				
+				<!-- open md8 -->
+					<h6><i class="material-icons">cloud </i> News Pubblicazioni</h6>
+					<div class="banner-bottom-grid-left-grids">
+						<div class="banner-bottom-grid-left-grid">
+							
+						<#list lista_ultime as pubblicazione>
+                                                <a href="dettaglio_pub?id=${pubblicazione.id}"><div class="col-md-7 banner-bottom-grid-left-gridr">
+								<h3>Titolo Pubblicazione: ${pubblicazione.titolo?capitalize}</h3>
+								<p>Nome Utente: ${pubblicazione.autore?capitalize}</p>
+								
+							</div>
+                                                <div class="col-md-5 banner-bottom-grid-left-gridl">
+							
+                                                            <img src="template/images/${pubblicazione.descrizione}" alt=" " class="img-responsive" width="35%"/>
+								<div class="banner-bottom-grid-left-gridl-pos">
+				<!--					<h4>23<span>Giugno</span> 2016</h4> -->
+								</div>
+							</div>
+							<div class="clearfix"> </div>
+						</#list>
+						</div></a>
+					</div>
+					<h5><i class="material-icons right">collections_bookmark</i> Pubblicazioni modificate di recente</h5>
+					<div class="banner-bottom-grid-left-grids">
+						<div class="banner-bottom-grid-left-grid">
+						<#if lista_modificate ??>
+                        <#list lista_modificate as modificate>
+                                  <a href="dettaglio_pub?id=${modificate.id}">                  <div class="col-md-7 banner-bottom-grid-left-gridr">
+								<h3>Titolo Pubblicazione: ${modificate.titolo?capitalize}</h3>
+							</div>
+                         <div class="col-md-5 banner-bottom-grid-left-gridl">
+								<img src="template/images/${modificate.autore}" alt=" " class="img-responsive" width="35%"/>
+								<div class="banner-bottom-grid-left-gridl-pos">
+									<!-- <h4>23<span>Giugno</span> 2016</h4>  -->
+								</div>
+							</div>
+							
+							<div class="clearfix"> </div>
+						</a>
+                                                        </#list>
+                                       </#if>
+						</div>
+					</div>
+					<h5><i class="material-icons">vertical_align_top</i> Utenti più attivi</h5>
+					<div class="banner-bottom-grid-left-grids">
+						<div class="banner-bottom-grid-left-grid">
+							
+                                                    
+<!--                                                    <div class="col-md-5 banner-bottom-grid-left-gridl">
+								<img src="template/images/univaq.jpg" alt=" " class="img-responsive" width="50%"/>
+								<div class="banner-bottom-grid-left-gridl-pos">
+									<h4>23<span>Giugno</span> 2016</h4>
+								</div>
+							</div>-->
+                                                    <#if lista_attivi ??>
+                                             <#list lista_attivi as attivi>
+                                             <a href="listaPubbyuser?id=${attivi.id}">
+							<div class="col-md-7 banner-bottom-grid-left-gridr">
+								<h3>Nome: ${attivi.nome?capitalize}</h3>
+								<h3>Cognome: ${attivi.cognome?capitalize}</h3>
+								<p>Numero Pubblicazioni inserite: ${attivi.id_tipo}</p>
+							</div>
+							<div class="clearfix"> </div>
+                                             </a>
+                                                        
+                                                        </#list>
+                                       </#if>
+						</div>
+					</div>
+				</div> <!-- close md8 -->
+				
+				<div class="clearfix"> </div>
+				
+				
+			</div>
+		</div>
+	</div>
+<!-- //banner-bottom -->
+			
+			
+			
+<!-- footer -->
+	<div class="footer">
+		<div class="container">
+			<div class="footer-grid">
+				<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+				<h3><span>Connettiti</span> Sottoscriviti alle Newsletter</h3>
+				<form action="" method="post">
+					<input name="email" type="email" value="inserisci il tuo indirizzo email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'inserisci il tuo indirizzo email';}" required="">
+					<input type="submit" value=" " >
+				</form>
+			</div>
+			<div class="footer-grid-logo">
+				<h2><a href="home.html"><span></span>Biblio Manager<i>Biblioteca Online</i></a></h2>
+				<p>Entra anche tu a far parte della nostra community!</p>
+				<div class="social">
+					<ul>
+						<li><a href="#" class="link facebook"><span></span></a></li>
+						<li><a href="#" class="link twitter"><span></span></a></li>
+						<li><a href="#" class="link google-plus"><span></span></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer-copy">
+		<div class="container">
+			<p>&copy 2016 Biblio Manager. All rights reserved <!--| Design by <a href="http://w3layouts.com/">W3layouts.</a> --> </p>
+		</div>
+	</div>
+<!-- //footer -->
+<!-- for bootstrap working -->
+	<script src="template/js/bootstrap.js"></script>
+<!-- //for bootstrap working -->
+<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			*/
+								
+			$().UItoTop({ easingType: 'easeOutQuart' });
+								
+			});
+	</script>
+<!-- //here ends scrolling icon -->
+</body>
+</html>

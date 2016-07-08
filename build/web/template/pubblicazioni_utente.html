@@ -1,0 +1,90 @@
+<#include "header.html">
+
+
+<div class="services">
+		<div class="container">
+			<div class="services-grids">
+                                <br>
+				<h3><span>La nostra raccolta!</span><i class="material-icons">collections_bookmark</i> Pubblicazioni</h3>
+                                <br><br>
+				<div class="services-grid1">
+                                    
+                                <#if lista_pubblicazioni??>
+                                <#list lista_pubblicazioni as pubblicazione>  
+                               <a href="dettaglio_pub?id=${pubblicazione.id}">	<div class="col-md-4 services-grid1-left">
+                                    <img src="template/images/${pubblicazione.descrizione}" alt=" " class="img-responsive" width="50%"/>
+                                    <br>
+                                    <p>Titolo Pubblicazione: <h2>${pubblicazione.titolo?capitalize}</h2> </p>
+                                        <p>Autore: ${pubblicazione.autore?capitalize}</p>
+                                        <p>Editore:  ${pubblicazione.editore?capitalize}</p>
+                                        <p>Data Pubblicazione: ${pubblicazione.data_pubblicazione} </p>                                            
+                                </div>
+                                </#list>
+                               </#if>
+                                <div class="clearfix"> </div>
+				</div>
+				
+                              
+			</div>
+                    
+                    
+
+                    
+                    
+		</div>
+	</div>
+<!-- //services -->                    
+                    
+                    			
+<!-- footer -->
+	<div class="footer">
+		<div class="container">
+			<div class="footer-grid">
+				<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+				<h3><span>Connettiti</span> Sottoscriviti alle Newsletter</h3>
+				<form action="" method="post">
+					<input name="email" type="email" value="inserisci il tuo indirizzo email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'inserisci il tuo indirizzo email';}" required="">
+					<input type="submit" value=" " >
+				</form>
+			</div>
+			<div class="footer-grid-logo">
+				<h2><a href="home.html"><span></span>Biblio Manager<i>Biblioteca Online</i></a></h2>
+				<p>Entra anche tu a far parte della nostra community!</p>
+				<div class="social">
+					<ul>
+						<li><a href="#" class="link facebook"><span></span></a></li>
+						<li><a href="#" class="link twitter"><span></span></a></li>
+						<li><a href="#" class="link google-plus"><span></span></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer-copy">
+		<div class="container">
+			<p>&copy 2016 Biblio Manager. All rights reserved <!--| Design by <a href="http://w3layouts.com/">W3layouts.</a> --> </p>
+		</div>
+	</div>
+<!-- //footer -->
+<!-- for bootstrap working -->
+	<script src="template/js/bootstrap.js"></script>
+<!-- //for bootstrap working -->
+<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			*/
+								
+			$().UItoTop({ easingType: 'easeOutQuart' });
+								
+			});
+	</script>
+<!-- //here ends scrolling icon -->
+</body>
+</html>

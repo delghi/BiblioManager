@@ -1,0 +1,139 @@
+<#include "header.html">
+	
+
+
+
+
+<!-- banner-bottom -->
+	<div class="banner-bottom">
+		<div class="container">
+			<div class="banner-bottom-grids">
+				<div class="col-md-5 banner-bottom-grid-left">
+					<div class="banner-bottom-grid-right-grid1">
+                                            <form action="login" method="post" onmousedown="javascript:verificaRegUtente()">
+							<a href="catalogo.html"><h6><i class="material-icons">vpn_key</i> Login</h6></a>
+							<br>
+							<br>
+							<div class="input-group input-group-lg">
+								<span class="input-group-addon" id="sizing-addon1"><i class="material-icons">email</i></span>
+								<input name="email" type="text" class="form-control" placeholder="Indirizzo Email" aria-describedby="sizing-addon1" required>
+							</div>
+							<div class="input-group input-group-lg">
+								<span class="input-group-addon" id="sizing-addon1"><i class="material-icons">vpn_key</i></span>
+								<input name="password" type="password" class="form-control" placeholder="Password" aria-describedby="sizing-addon1" required>
+							</div>
+							<div class="col-lg-6 in-gp-tb">
+								<div class="input-group">
+									<span class="input-group-btn">
+										<button class="btn btn-default" type="submit">Accedi!</button>
+									</span>
+								</div>
+							</div>
+						</form>	
+					</div>
+				</div> <!-- close div md5.1 -->
+				
+				<div class="col-md-2 banner-bottom-grid-left">
+				
+				</div>
+				
+				<div class="col-md-5 banner-bottom-grid-left">
+
+					<a href="catalogo.html"><h6><i class="material-icons">edit</i> Registrati</h6></a>
+					<br>
+					<br>
+					<div class="banner-bottom-grid-left-grid">
+						<form action="signup" method="post" name="signupform">
+							<div class="input-group input-group-lg">
+								<span class="input-group-addon" id="nome_reg"><i class="material-icons">face</i></span>
+								<input name="nome_reg" type="text" class="form-control" placeholder="Nome" aria-describedby="sizing-addon1">
+							</div>
+							<div class="input-group input-group-lg">
+								<span class="input-group-addon" id="cognome_reg"><i class="material-icons">face</i></span>
+								<input name="cognome_reg" type="text" class="form-control" placeholder="Cognome" aria-describedby="sizing-addon1">
+							</div>
+							<div class="input-group input-group-lg">
+								<span class="input-group-addon" id="data"><i class="material-icons">date_range</i></span>
+								<input name="data" type="date" class="form-control center" placeholder="Data nascita (yyyy/mm/dd)" aria-describedby="sizing-addon1">
+							</div>
+							<div class="input-group input-group-lg">
+								<span class="input-group-addon" id="email_reg"><i class="material-icons">email</i></span>
+								<input name="email_reg" type="email" class="form-control" placeholder="Email" aria-describedby="sizing-addon1">
+							</div>
+							<div class="input-group input-group-lg">
+								<span class="input-group-addon" id="password_reg"><i class="material-icons">vpn_key</i></span>
+								<input name="password_reg" type="password" class="form-control" placeholder="Password" aria-describedby="sizing-addon1">
+							</div>
+							<div class="col-lg-6 in-gp-tb">
+								<div class="input-group">
+									<span class="input-group-btn">
+										<button class="btn btn-default" type="submit">Invia Modulo!</button>
+									</span>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div> <!-- close md5.1 -->
+				
+				<div class="clearfix"> </div>
+				
+				
+			</div>
+		</div>
+	</div>
+<!-- //banner-bottom -->
+			
+			
+			
+<!-- footer -->
+	<div class="footer">
+		<div class="container">
+			<div class="footer-grid">
+				<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+				<h3><span>Connettiti</span> Sottoscriviti alle Newsletter</h3>
+				<form>
+					<input type="email" value="inserisci il tuo indirizzo email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'inserisci il tuo indirizzo email';}" required="">
+					<input type="submit" value=" " >
+				</form>
+			</div>
+			<div class="footer-grid-logo">
+				<h2><a href="home.html"><span></span>Biblio Manager<i>Biblioteca Online</i></a></h2>
+				<p>Entra anche tu a far parte della nostra community!</p>
+				<div class="social">
+					<ul>
+						<li><a href="#" class="link facebook"><span></span></a></li>
+						<li><a href="#" class="link twitter"><span></span></a></li>
+						<li><a href="#" class="link google-plus"><span></span></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer-copy">
+		<div class="container">
+			<p>&copy 2016 Biblio Manager. All rights reserved <!--| Design by <a href="http://w3layouts.com/">W3layouts.</a> --> </p>
+		</div>
+	</div>
+<!-- //footer -->
+<!-- for bootstrap working -->
+	<script src="template/js/bootstrap.js"></script>
+<!-- //for bootstrap working -->
+<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			*/
+								
+			$().UItoTop({ easingType: 'easeOutQuart' });
+								
+			});
+	</script>
+<!-- //here ends scrolling icon -->
+</body>
+</html>

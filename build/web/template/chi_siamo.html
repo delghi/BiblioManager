@@ -1,0 +1,110 @@
+<#include "header.html">
+	
+<body>
+
+
+
+
+<!-- about -->
+	<div class="about">
+		<div class="container">
+			<div class="about-grids">
+				<h3><span>Dicono di noi!</span><i class="material-icons right">center_focus_strong</i> Chi Siamo</h3>
+				<div class="about-grid1">
+					<img src="template/images/img3.jpg" alt=" " class="img-responsive" />
+					<p>"BiblioManager rappresenta un semplice gestore di catalogo bibliografico online.
+						Il catalogo conterra' una serie di pubblicazioni. 
+						Gli utenti anonimi potranno solo vedere la Homepage e quindi esclusivamente una lista delle ultime pubblicazioni inserite e una lista di utenti piu' attivi. 
+						Mentre l'utenza registrata potra' vedere in dettaglio il catalogo, inserire, modificare e recensire le pubblicazioni."</p>
+				</div>
+			</div>
+			
+			<div class="mail-grids">
+				<div class="col-md-6 mail-grid-left">
+					<h3><span>Hai curiosità? ...</span><i class="material-icons prefix">message</i> Scrivici</h3>
+					<form action="" method="post">
+						<input name="nome" type="text" value="Nome..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Nome...';}" required="">
+						<input name="email" type="email" value="Email..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email...';}" required="">
+						<textarea onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Messaggio...';}" required="">Messaggio...</textarea>
+						<input type="submit" value="Invia" >
+					</form>
+				</div>
+				<div class="col-md-6 mail-grid-left">
+					<h3><span>Per tutte le info...</span><i class="material-icons prefix">contacts</i> Contattaci</h3>
+					<ul>
+						<li><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+							Via Vetoio snc, L'Aquila, ITA.</li>
+						<li><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
+							(Tel) 0862 123456</li>
+						<li><span class="glyphicon glyphicon-copy" aria-hidden="true"></span>
+							(Fax) 0862 123456</li>
+						<li><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+							<a href="mailto:info@bibliomanager.com">info@bibliomanager.com</a></li>
+						<li><span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+							(Orario) 8-00 AM to 9-00 PM</li>
+					</ul>
+				</div>
+				<div class="clearfix"></div>
+				<div class="map">
+					<h3><span>Puoi trovarci qui...</span><i class="material-icons prefix">map</i> Consulta la mappa</h3>
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2947.7642523173436!2d13.34791471545661!3d42.36886317918634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132fcd66882dc14f%3A0xbfcd671e4e655ba9!2sUnivaq!5e0!3m2!1sit!2sit!4v1466700581195" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- //about -->
+
+
+
+<!-- footer -->
+	<div class="footer">
+		<div class="container">
+			<div class="footer-grid">
+				<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+				<h3><span>Connettiti</span> Sottoscriviti alle Newsletter</h3>
+				<form>
+					<input type="email" value="inserisci il tuo indirizzo email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'inserisci il tuo indirizzo email';}" required="">
+					<input type="submit" value=" " >
+				</form>
+			</div>
+			<div class="footer-grid-logo">
+				<h2><a href="home.html"><span></span>Biblio Manager<i>Biblioteca Online</i></a></h2>
+				<p>Entra anche tu a far parte della nostra community!</p>
+				<div class="social">
+					<ul>
+						<li><a href="#" class="link facebook"><span></span></a></li>
+						<li><a href="#" class="link twitter"><span></span></a></li>
+						<li><a href="#" class="link google-plus"><span></span></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer-copy">
+		<div class="container">
+			<p>&copy 2016 Biblio Manager. All rights reserved <!--| Design by <a href="http://w3layouts.com/">W3layouts.</a> --> </p>
+		</div>
+	</div>
+<!-- //footer -->
+<!-- for bootstrap working -->
+	<script src="template/js/bootstrap.js"></script>
+<!-- //for bootstrap working -->
+<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			*/
+								
+			$().UItoTop({ easingType: 'easeOutQuart' });
+								
+			});
+	</script>
+<!-- //here ends scrolling icon -->
+</body>
+</html>

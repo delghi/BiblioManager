@@ -1,0 +1,132 @@
+<#include "header.html">
+
+
+
+
+<!-- banner-bottom -->
+	<div class="banner-bottom">
+		<div class="container">
+			<div class="banner-bottom-grids">
+	<!--			<div class="col-md-4 banner-bottom-grid-left">
+					<div class="banner-bottom-grid-right-grid1">
+							
+							<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+								<h3>Menù</h3><br>
+								<h2>								
+							
+								<a href="upload_pun"><span class="label label-primary">Inserisci Pubblicazione</span></a><br><br>
+								<a href="logout"><span class="label label-danger">Logout</span></a><br><br>
+									
+						
+								</h2>
+							</div>	
+					</div>
+				</div> <!-- close div md4 -->
+				
+				<div class="col-md-12 banner-bottom-grid-left">
+					<h6><i class="material-icons prefix">perm_identity</i> Profilo Personale</h6>
+					<div class="banner-bottom-grid-left-grids">
+						<div class="banner-bottom-grid-left-grid">
+							<div class="col-md-5 banner-bottom-grid-left-gridl">
+							<img src="template/images/user.png" alt=" " class="img-responsive" width="70%"/>
+							<div class="banner-bottom-grid-left-gridl-pos">
+									<h3>${nome}<span> </span> ${cognome}</h3>
+								</div>	
+							</div>
+						
+							<div class="col-md-7 banner-bottom-grid-left-gridr">
+								<h2>Dati Personali</h2><br>
+									<ul class="list-group">
+										<i class="material-icons">email</i> Email<li class="list-group-item">${username}</li>
+										<i class="material-icons">perm_identity</i> Nome<li class="list-group-item"> ${nome }</li>
+										<i class="material-icons">perm_identity</i> Cognome<li class="list-group-item"> ${cognome}</li>
+										<i class="material-icons">today</i> Data di nascita<li class="list-group-item"> ${datanascita}</li>
+										
+									</ul>								
+							</div>
+							
+							<div class="clearfix"> </div>
+
+							<div class="col-md-7 banner-bottom-grid-left-gridl"></div>							
+								<br><br><h2>Opere contribuite</h2><br>
+								
+									
+                                                		<#if lista_pubblicazioni??>
+                                                                    <#list lista_pubblicazioni as pubblicazione>
+                                                                    <ul class="list-group">
+										<i class="material-icons">library_books</i> Opera<li class="list-group-item"> </li>
+                                                                                        <h3>Titolo Pubblicazione: ${pubblicazione.titolo?capitalize}</h3>
+                                                                                       </#list>
+                                                       
+                                                                         <#else>
+                                                                        <div><i class="material-icons">collections_bookmark</i> <b>Nessuna Opera inserita!</b></div>
+                                                       
+                                                                            </#if> 
+                                                        
+										
+																
+								</ul>
+						</div>
+					</div>
+					
+				</div>
+				
+			</div>
+		</div>
+	</div>
+<!-- //banner-bottom -->
+			
+			
+			
+<!-- footer -->
+	<div class="footer">
+		<div class="container">
+			<div class="footer-grid">
+				<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+				<h3><span>Connettiti</span> Sottoscriviti alle Newsletter</h3>
+				<form>
+					<input type="email" value="inserisci il tuo indirizzo email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'inserisci il tuo indirizzo email';}" required="">
+					<input type="submit" value=" " >
+				</form>
+			</div>
+			<div class="footer-grid-logo">
+				<h2><a href="home.html"><span></span>Biblio Manager<i>Biblioteca Online</i></a></h2>
+				<p>Entra anche tu a far parte della nostra community!</p>
+				<div class="social">
+					<ul>
+						<li><a href="#" class="link facebook"><span></span></a></li>
+						<li><a href="#" class="link twitter"><span></span></a></li>
+						<li><a href="#" class="link google-plus"><span></span></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer-copy">
+		<div class="container">
+			<p>&copy 2016 Biblio Manager. All rights reserved <!--| Design by <a href="http://w3layouts.com/">W3layouts.</a> --> </p>
+		</div>
+	</div>
+<!-- //footer -->
+<!-- for bootstrap working -->
+	<script src="template/js/bootstrap.js"></script>
+<!-- //for bootstrap working -->
+<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			*/
+								
+			$().UItoTop({ easingType: 'easeOutQuart' });
+								
+			});
+	</script>
+<!-- //here ends scrolling icon -->
+</body>
+</html>

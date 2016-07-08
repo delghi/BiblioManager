@@ -1,0 +1,271 @@
+<#include "header.html">
+
+
+
+<!-- single -->	
+	<div class="single">
+		<div class="container">
+			<div class="single-info">
+				<h3>${titolo}</h3>
+				<div class="comments">
+					<ul>
+						<li>><span class="glyphicon glyphicon-user" aria-hidden="true"></span> (${nome?capitalize} ${cognome?capitalize}) /</li>
+						<li><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>(${lista_ristampe?first.data_insert})</li>
+					</ul>
+				</div>
+				<div class="dummy-text">
+					<div class="dummy-text-grids">
+						<div class="col-md-4 dummy-text-grid-left">
+							<h4><i class="material-icons prefix">details</i> Dettaglio pubblicazione:</h4>
+                                                        <h4><img src="template/images/${copertina}" alt=" " class="img-responsive" width="65%"/></h4>
+						</div>
+						<div class="col-md-8 dummy-text-grid-left">
+						
+							<table>
+								<tbody>
+									
+									<tr>
+										<th width="250"><i class="material-icons prefix">title</i> Titolo:</th>
+										<td>
+											<ul class="collection">
+												<span class="collection-item">${titolo}</span>
+											</ul>
+										</td>
+										
+									</tr>
+									<tr><td><ul><br></ul></td></tr>
+									<tr>
+										<th><i class="material-icons prefix">people</i> Autore:</th>
+										<td>
+											<ul class="collection">
+												<span class="collection-item">${autore}</span>
+											</ul>
+										</td>
+										
+									</tr>
+                                                                        <tr><td><ul><br></ul></td></tr>
+									<tr>
+										<th><i class="material-icons prefix">account_circle</i> Editore: </th>
+										<td>
+											<ul class="collection">
+												<span class="collection-item">${lista_ristampe?first.editore}</span>
+											</ul>
+										</td>
+										
+									</tr>
+									<tr><td><ul><br></ul></td></tr>
+									<tr>
+									<th><i class="material-icons prefix">description</i> Descizione:</th>
+										<td>
+											<ul class="collection">
+												<span class="collection-item">${descrizione}</span>
+											</ul>
+										</td>
+										
+									</tr>
+									<tr><td><ul><br></ul></td></tr>
+									<tr>
+										<th><i class="material-icons prefix">code</i> Codice ISBN:</th>
+										<td>
+											<ul class="collection">
+												<span class="collection-item">${lista_ristampe?first.isbn?c}</span>
+											</ul>
+										</td>
+										
+									</tr>
+									<tr><td><ul><br></ul></td></tr>
+									<tr>
+										<th><i class="material-icons prefix">control_point</i> Numero Pagine:</th>
+										<td>
+											<ul class="collection">
+												<span class="collection-item">${lista_ristampe?first.num_pagine}</span>
+											</ul>
+										</td>
+										
+									</tr>
+									<tr><td><ul><br></ul></td></tr>
+									<tr>
+										<th><i class="material-icons prefix">language</i> Lingua:</th>
+										<td>
+											<ul class="collection">
+												<span class="collection-item">${lista_ristampe?first.lingua}</span>
+											</ul>
+										</td>
+										
+									</tr>
+									<tr><td><ul><br></ul></td></tr>
+									<tr>
+										<th><i class="material-icons prefix">date_range</i> Data Pubblicazione:</th>
+										<td>
+											<ul class="collection">
+												<span class="collection-item">${lista_ristampe?first.data_pubblicazione}</span>
+											</ul>
+										</td>
+										
+									</tr>
+                                                                        <tr><td><ul><br></ul></td></tr>
+                                                                        <tr>
+										<th><i class="material-icons prefix">format_list_numbered</i> Lista Ristampe:</th>
+										<td>
+                                                                                    <#list lista_ristampe as ristampa>
+											<ul class="collection">
+												<span class="collection-item">Num. Ristampa. ${ristampa?counter} ISBN : ${ristampa.isbn} -- Data: ${ristampa.data_pubblicazione}</span>
+                                                                                                
+											</ul>
+                                                                                    </#list>
+										</td>
+										
+									</tr>
+                                                                         <tr>
+										<th><i class="material-icons prefix">attach_file</i>Scarica allegato:</th>
+										<td><br>
+                                                                                    <form action="download" method="get">
+                                                                                        <input type="hidden"  value="${lista_ristampe?first.download}" name="file"  placeholder="">
+                                                                                        <input type="hidden"  value="${id}" name="id"  placeholder="">
+                                                                                        <input type="submit" name="submit" value="download"/></p>
+                                                                                    </form>
+                                                                                </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                                <th></th>
+                                                                                <td>   
+                                                                                    <br>
+                                                                                    <#if (tipologia ==1)>    
+                                                                                    <div> <a href="modifica_pub?id=${id}">MODIFICA PUBBLICAZIONE</a></div>
+                                                                                    
+                                                                                    <br>
+                                                                                    <div> <a href="upload_rist?id=${id}">INSERISCI NUOVA RISTAMPA</a></div>
+                                                                                    <#if lista_modifiche??>
+                                                                                    <#list lista_modifiche as modifica>
+                                                                                    
+                                                                                    <div><p>Story Modifica: L'utente ${modifica.nome} ha modificato questa pubblicazione il ${modifica.timestamp}</p>
+                                                                                        <p>Descrizione Modifica: ${modifica.descrizione}</p>
+                                                                                    </div>
+                                                                                    </#list>
+                                                                                    </#if>
+                                                                                    </#if>
+										</td>
+										
+									</tr>
+                                                                        
+								</tbody>
+							</table>
+
+						</div>
+						<div class="clearfix"> </div>
+						
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+				<br>
+				<div class="recent-com">	
+					<h4>Ultime <span>Recensioni</span></h4>
+					<#if lista_recensioni??>
+                                                        <#list lista_recensioni as recensione>
+                                        <div class="recent-com-grids">
+						<div class="recent-com-grid">
+                                                    <div class="col-xs-2 recent-com-grid-left">
+                                                            <img src="template/images/user.png" alt=" " class="img-responsive" />
+                                                    </div>
+							
+                                                    <div class="col-xs-10 recent-com-grid-right">
+                                                         
+								<h5>Titolo recensione: <a>${recensione.titolo?capitalize} </a></h5>
+                                                               
+                                                                <p><h5>Recensione: <a>${recensione.testo}</a></h5></p>
+                                                                 <h5>Inserita da: <a href="#">${recensione.utente} </a></h5>
+                                                        <span class="input-group-btn">
+                                                            <p id="conteggi"> 0 <button class="btn btn-like" type="submit" value="Conta" onClick="javascript:contatore();"><img width="70%" src="template/images/like.png"/></button>
+                                                            </p>
+                                                        </span>
+							
+                                                    </div> 
+                                                    <div class="clearfix"> </div>
+						</div>
+
+					</div>
+                                                         </#list>
+                                                        </#if>
+				</div>
+				<div class="leave-comm">
+					<h4>Lascia una <span>Recensione</span></h4>
+					<div class="leave-comm-grids">
+						<form action="dettaglio_pub" method="post">
+							<input name="titolo" type="text" value="titolo" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Nome...';}" required="">
+							<input name="voto" type="text" value="voto" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email...';}" required="">
+                                                        <textarea name="testo" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Messaggio...';}" required="">Messaggio...</textarea>
+							
+                                                         <div class="controls">
+                                    <input type="hidden"  value="${lista_ristampe?first.pubb}" name="id"  placeholder="">
+                                </div>
+                                                        <input type="submit" value="Lascia la recensione" name="recensione">
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- //single -->
+
+
+
+<!-- footer -->
+	<div class="footer">
+		<div class="container">
+			<div class="footer-grid">
+				<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+				<h3><span>Connettiti</span> Sottoscriviti alle Newsletter</h3>
+				<form action="" method="post">
+					<input name="email" type="email" value="inserisci il tuo indirizzo email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'inserisci il tuo indirizzo email';}" required="">
+					<input type="submit" value=" " >
+				</form>
+			</div>
+			<div class="footer-grid-logo">
+				<h2><a href="index"><span></span>Biblio Manager<i>Biblioteca Online</i></a></h2>
+				<p>Entra anche tu a far parte della nostra community!</p>
+				<div class="social">
+					<ul>
+						<li><a href="#" class="link facebook"><span></span></a></li>
+						<li><a href="#" class="link twitter"><span></span></a></li>
+						<li><a href="#" class="link google-plus"><span></span></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer-copy">
+		<div class="container">
+			<p>&copy 2016 Biblio Manager. All rights reserved <!--| Design by <a href="http://w3layouts.com/">W3layouts.</a> --> </p>
+		</div>
+	</div>
+<!-- //footer -->
+<!-- for bootstrap working -->
+	<script src="template/js/bootstrap.js"></script>
+<!-- //for bootstrap working -->
+<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			*/
+								
+			$().UItoTop({ easingType: 'easeOutQuart' });
+								
+			});
+	</script>
+        
+        <script type="text/javascript">
+            var s=0;
+            function contatore() {
+                    s=s+1;
+                    document.getElementById('conteggi').innerHTML = s;
+            }
+        </script>
+<!-- //here ends scrolling icon -->
+</body>
+</html>
